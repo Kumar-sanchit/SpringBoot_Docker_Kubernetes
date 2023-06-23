@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: greeting
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      name: Hello
+  template:
+    metadata:
+      name: greeting
+      labels:
+        name: Hello
+      annotations:
+        description: Hello from Greet service
+    spec:
+      containers:
+       - name: c00
+         image: imgtest
+         imagePullPolicy: Never
